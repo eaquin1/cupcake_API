@@ -38,9 +38,8 @@ class Cupcake(db.Model):
     )
 
     image = db.Column(
-        db.Text
+        db.Text,
+        default=GENERIC_IMG,
+        nullable=False
     )
 
-    def default_img(self):
-        """Return image for pet"""
-        return self.image or GENERIC_IMG

@@ -87,4 +87,11 @@ def delete_cupcake(id):
 
     return jsonify(message="Deleted")
 
+@app.route("/")
+def render_cupcake_list():
+    """Show list of cupcakes in the browser"""
+    cupcakes = Cupcake.query.all()
+
+    return render_template('home.html', cupcakes = cupcakes)
+
 

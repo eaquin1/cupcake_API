@@ -1,0 +1,11 @@
+body {
+    background-color: aliceblue;
+}
+
+li {
+    text-transform: capitalize;
+}
+
+img {
+    width: 80px;
+}

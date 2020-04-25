@@ -17,7 +17,7 @@ async function populateCupcakes() {
 }
 
 async function addCupcake() {
-    let flavor = $("#flavor").val();
+    let flavor = $("#flavor").val().toLowerCase();
     let size = $("#size").val();
     let rating = $("#rating").val();
     let image = $("#image").val();
@@ -30,8 +30,8 @@ async function addCupcake() {
     });
    
     let HTML = generateCupcakeHTML(newCupcake.data.cupcake);
-    $("#cupcakes-list").append(HTML)
-
+    $("#cupcakes-list").append(HTML);
+    $("#new-cupcake-form").trigger("reset");
 }
 
 $("#new-cupcake-form").on("submit", function(e) {

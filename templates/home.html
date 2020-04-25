@@ -40,8 +40,26 @@
             <button id="submit" class="btn btn-success">Save</button>
         </form>
     </div>
+<hr>
+    <div class="row justify-content-center mt-5">
+       <form action="/api/cupcakes/search">
+            <div class="form-group">
+                <input type="text" class="form-control" id="search" name="search" placeholder="Search for a flavor">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
 
-    
+    {% if searched_flavor %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-6">
+            <ul class="list-group" id="cupcakes-list">
+          {% for c in searched_flavor %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">{{c.flavor}} / {{c.size}} <img src="{{c.image}}"></li>
+        {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
     integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous"></script>
@@ -49,6 +67,6 @@
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
-  <script src="static/cupcakes.js"></script>
+  <script src="/static/cupcakes.js"></script>
 </body>
 </html>

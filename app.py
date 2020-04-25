@@ -94,4 +94,15 @@ def render_cupcake_list():
 
     return render_template('home.html', cupcakes = cupcakes)
 
+@app.route("/api/cupcakes/search")
+def search_cupcakes():
+    """Search cupcake flavors and render a list """
+    cupcakes = Cupcake.query.all()
+    flavor = request.args['search']
+    search = "%{}%".format(flavor)
+    
+    searched_flavor = Cupcake.query.filter(Cupcake.flavor.ilike(search)).all()
+   
+    return render_template('home.html', cupcakes = cupcakes, searched_flavor=searched_flavor)
+
 
